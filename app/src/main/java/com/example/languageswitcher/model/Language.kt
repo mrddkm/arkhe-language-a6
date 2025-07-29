@@ -12,7 +12,7 @@ data class Language(
 
 object Languages {
     val ENGLISH = Language("en", "English", "English")
-    val INDONESIAN = Language("id", "Indonesian", "Bahasa Indonesia")
+    val INDONESIAN = Language("in", "Indonesian", "Bahasa Indonesia")
 
     val availableLanguages = listOf(ENGLISH, INDONESIAN)
 

@@ -19,12 +19,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.languageswitcher.R
 import com.example.languageswitcher.model.Language
 import com.example.languageswitcher.model.Languages
+import com.example.languageswitcher.utils.LanguageManager
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -33,6 +34,8 @@ fun LanguageBottomSheet(
     onLanguageSelected: (Language) -> Unit,
     onDismiss: () -> Unit
 ) {
+    val context = LocalContext.current
+
     ModalBottomSheet(
         onDismissRequest = onDismiss,
         modifier = Modifier.fillMaxWidth()
@@ -43,7 +46,11 @@ fun LanguageBottomSheet(
                 .padding(16.dp)
         ) {
             Text(
-                text = stringResource(R.string.select_language),
+                text = LanguageManager.getLocalizedString(
+                    context,
+                    R.string.select_language,
+                    selectedLanguage.code
+                ),
                 style = MaterialTheme.typography.headlineSmall,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.padding(bottom = 16.dp)
