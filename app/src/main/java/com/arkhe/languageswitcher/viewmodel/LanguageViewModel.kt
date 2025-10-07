@@ -1,14 +1,14 @@
-package com.example.languageswitcher.viewmodel
+package com.arkhe.languageswitcher.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.languageswitcher.R
-import com.example.languageswitcher.model.Language
-import com.example.languageswitcher.model.LanguageState
-import com.example.languageswitcher.model.Languages
-import com.example.languageswitcher.repository.LanguageRepository
-import com.example.languageswitcher.utils.LanguageManager
+import com.arkhe.languageswitcher.R
+import com.arkhe.languageswitcher.model.Language
+import com.arkhe.languageswitcher.model.LanguageState
+import com.arkhe.languageswitcher.model.Languages
+import com.arkhe.languageswitcher.repository.LanguageRepository
+import com.arkhe.languageswitcher.utils.LanguageManager
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

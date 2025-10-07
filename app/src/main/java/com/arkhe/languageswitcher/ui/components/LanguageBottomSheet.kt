@@ -1,4 +1,4 @@
-package com.example.languageswitcher.ui.components
+package com.arkhe.languageswitcher.ui.components
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -22,10 +22,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.example.languageswitcher.R
-import com.example.languageswitcher.model.Language
-import com.example.languageswitcher.model.Languages
-import com.example.languageswitcher.utils.LanguageManager
+import com.arkhe.languageswitcher.R
+import com.arkhe.languageswitcher.model.Language
+import com.arkhe.languageswitcher.model.Languages
+import com.arkhe.languageswitcher.utils.LanguageManager
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

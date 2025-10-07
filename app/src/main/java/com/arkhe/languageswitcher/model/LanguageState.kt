@@ -1,4 +1,4 @@
-package com.example.languageswitcher.model
+package com.arkhe.languageswitcher.model
 
 data class LanguageState(
     val currentLanguage: Language = Languages.ENGLISH,

@@ -1,4 +1,4 @@
-package com.example.languageswitcher.ui.theme
+package com.arkhe.languageswitcher.ui.theme
 
 import android.app.Activity
 import android.os.Build

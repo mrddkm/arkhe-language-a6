@@ -1,4 +1,4 @@
-package com.example.languageswitcher
+package com.arkhe.languageswitcher
 
 import org.junit.Test
 

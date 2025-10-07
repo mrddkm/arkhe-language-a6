@@ -1,4 +1,4 @@
-package com.example.languageswitcher.utils
+package com.arkhe.languageswitcher.utils
 
 import android.content.Context
 import android.content.res.Configuration

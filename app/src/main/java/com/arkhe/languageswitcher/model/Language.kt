@@ -1,4 +1,4 @@
-package com.example.languageswitcher.model
+package com.arkhe.languageswitcher.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

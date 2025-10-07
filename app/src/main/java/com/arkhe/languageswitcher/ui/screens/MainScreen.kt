@@ -1,4 +1,4 @@
-package com.example.languageswitcher.ui.screens
+package com.arkhe.languageswitcher.ui.screens
 
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.fadeIn
@@ -34,8 +34,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.example.languageswitcher.ui.components.LanguageBottomSheet
-import com.example.languageswitcher.viewmodel.LanguageViewModel
+import com.arkhe.languageswitcher.ui.components.LanguageBottomSheet
+import com.arkhe.languageswitcher.viewmodel.LanguageViewModel
 import org.koin.androidx.compose.koinViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)

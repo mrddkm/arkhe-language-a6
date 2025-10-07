@@ -1,4 +1,4 @@
-package com.example.languageswitcher.ui.theme
+package com.arkhe.languageswitcher.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

@@ -1,7 +1,7 @@
-package com.example.languageswitcher.di
+package com.arkhe.languageswitcher.di
 
-import com.example.languageswitcher.repository.LanguageRepository
-import com.example.languageswitcher.viewmodel.LanguageViewModel
+import com.arkhe.languageswitcher.repository.LanguageRepository
+import com.arkhe.languageswitcher.viewmodel.LanguageViewModel
 import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 

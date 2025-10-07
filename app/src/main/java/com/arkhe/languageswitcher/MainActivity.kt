@@ -1,4 +1,4 @@
-package com.example.languageswitcher
+package com.arkhe.languageswitcher
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -7,8 +7,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import com.example.languageswitcher.ui.screens.MainScreen
-import com.example.languageswitcher.ui.theme.LanguageSwitcherTheme
+import com.arkhe.languageswitcher.ui.screens.MainScreen
+import com.arkhe.languageswitcher.ui.theme.LanguageSwitcherTheme
 
 class MainActivity : ComponentActivity() {
 
