@@ -21,5 +21,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Language Switcher"
+rootProject.name = "LanguageSwitcher"
 include(":app")
