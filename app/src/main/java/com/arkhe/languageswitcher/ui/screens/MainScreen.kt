@@ -50,7 +50,7 @@ fun MainScreen(
         topBar = {
             TopAppBar(
                 title = {
-                    Text(text = viewModel.getLocalizedString("app_name"))
+                    Text(text = viewModel.getLocalizedString("app_title"))
                 }
             )
         }

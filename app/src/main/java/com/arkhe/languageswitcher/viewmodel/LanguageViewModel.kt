@@ -51,6 +51,11 @@ class LanguageViewModel(
                 R.string.app_name,
                 languageCode
             ),
+            "app_title" to LanguageManager.getLocalizedString(
+                getApplication(),
+                R.string.app_title,
+                languageCode
+            ),
             "select_language" to LanguageManager.getLocalizedString(
                 getApplication(),
                 R.string.select_language,

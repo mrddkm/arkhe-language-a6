@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Pengubah Bahasa</string>
+    <string name="app_title">Bahasa</string>
     <string name="select_language">Pilih Bahasa</string>
     <string name="current_language">Bahasa Saat Ini</string>
     <string name="welcome_message">Selamat datang di Aplikasi Pengubah Bahasa!</string>
