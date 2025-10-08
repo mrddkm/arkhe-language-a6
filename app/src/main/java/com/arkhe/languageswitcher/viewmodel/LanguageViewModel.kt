@@ -8,7 +8,6 @@ import com.arkhe.languageswitcher.model.Language
 import com.arkhe.languageswitcher.model.LanguageState
 import com.arkhe.languageswitcher.model.Languages
 import com.arkhe.languageswitcher.repository.ILanguageRepository
-import com.arkhe.languageswitcher.repository.LanguageRepository
 import com.arkhe.languageswitcher.utils.LanguageManager
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
