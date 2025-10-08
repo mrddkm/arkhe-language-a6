@@ -8,22 +8,47 @@ import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import com.arkhe.languageswitcher.model.Languages
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.map
 
 private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "language_settings")
 
-class LanguageRepository(private val context: Context) {
+/**
+ * Interface for language repository to enable mocking in previews
+ */
+interface ILanguageRepository {
+    val selectedLanguageCode: Flow<String>
+    suspend fun setLanguage(languageCode: String)
+}
 
-    private val LANGUAGE_CODE_KEY = stringPreferencesKey("language_code")
+/**
+ * Real implementation using DataStore
+ */
+class LanguageRepository(private val context: Context) : ILanguageRepository {
 
-    val selectedLanguageCode: Flow<String> = context.dataStore.data
+    private val languageCodeKey = stringPreferencesKey("language_code")
+
+    override val selectedLanguageCode: Flow<String> = context.dataStore.data
         .map { preferences ->
-            preferences[LANGUAGE_CODE_KEY] ?: Languages.ENGLISH.code
+            preferences[languageCodeKey] ?: Languages.ENGLISH.code
         }
 
-    suspend fun setLanguage(languageCode: String) {
+    override suspend fun setLanguage(languageCode: String) {
         context.dataStore.edit { preferences ->
-            preferences[LANGUAGE_CODE_KEY] = languageCode
+            preferences[languageCodeKey] = languageCode
         }
+    }
+}
+
+/**
+ * Mock implementation for preview - doesn't require DataStore
+ */
+class MockLanguageRepository : ILanguageRepository {
+    private val languageFlow = MutableStateFlow(Languages.ENGLISH.code)
+
+    override val selectedLanguageCode: Flow<String> = languageFlow
+
+    override suspend fun setLanguage(languageCode: String) {
+        languageFlow.value = languageCode
     }
 }

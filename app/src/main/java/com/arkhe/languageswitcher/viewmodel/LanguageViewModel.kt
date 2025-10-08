@@ -7,6 +7,7 @@ import com.arkhe.languageswitcher.R
 import com.arkhe.languageswitcher.model.Language
 import com.arkhe.languageswitcher.model.LanguageState
 import com.arkhe.languageswitcher.model.Languages
+import com.arkhe.languageswitcher.repository.ILanguageRepository
 import com.arkhe.languageswitcher.repository.LanguageRepository
 import com.arkhe.languageswitcher.utils.LanguageManager
 import kotlinx.coroutines.delay
@@ -17,12 +18,18 @@ import kotlinx.coroutines.launch
 
 class LanguageViewModel(
     context: Context,
-    private val languageRepository: LanguageRepository
+    private val languageRepository: ILanguageRepository
 ) : ViewModel() {
 
     private val appContext: Context = context.applicationContext
 
-    private val _languageState = MutableStateFlow(LanguageState())
+    private val _languageState = MutableStateFlow(
+        LanguageState(
+            currentLanguage = Languages.ENGLISH,
+            localizedStrings = loadLocalizedStrings(Languages.ENGLISH.code)
+        )
+    )
+
     val languageState: StateFlow<LanguageState> = _languageState.asStateFlow()
 
     private val _showBottomSheet = MutableStateFlow(false)
@@ -102,22 +109,16 @@ class LanguageViewModel(
         viewModelScope.launch {
             val currentLanguage = _languageState.value.currentLanguage
 
-            // Only change if language is different
             if (currentLanguage.code != language.code) {
-                // Show loading state
                 _languageState.value = _languageState.value.copy(isChangingLanguage = true)
                 _showBottomSheet.value = false
 
-                // Save language preference
                 languageRepository.setLanguage(language.code)
 
-                // Simulate loading time for better UX (optional)
-                delay(800) // 800ms loading
+                delay(800)
 
-                // Load new localized strings
                 val newLocalizedStrings = loadLocalizedStrings(language.code)
 
-                // Update state with new language and strings
                 _languageState.value = _languageState.value.copy(
                     currentLanguage = language,
                     localizedStrings = newLocalizedStrings,

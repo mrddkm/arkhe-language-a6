@@ -36,7 +36,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.arkhe.languageswitcher.di.appModule
+import com.arkhe.languageswitcher.di.previewModule
 import com.arkhe.languageswitcher.ui.components.LanguageBottomSheet
 import com.arkhe.languageswitcher.ui.theme.LanguageSwitcherTheme
 import com.arkhe.languageswitcher.viewmodel.LanguageViewModel
@@ -204,12 +204,12 @@ private fun MainContent(
 
 @Preview(showBackground = true)
 @Composable
-private fun MainScreenPreview() {
+private fun MainScreenMockPreview() {
     val previewContext = LocalContext.current
     KoinApplication(
         application = {
             androidContext(previewContext)
-            modules(appModule)
+            modules(previewModule)
         }
     ) {
         LanguageSwitcherTheme {
