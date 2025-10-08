@@ -33,10 +33,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.arkhe.languageswitcher.di.appModule
 import com.arkhe.languageswitcher.ui.components.LanguageBottomSheet
+import com.arkhe.languageswitcher.ui.theme.LanguageSwitcherTheme
 import com.arkhe.languageswitcher.viewmodel.LanguageViewModel
+import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.compose.koinViewModel
+import org.koin.compose.KoinApplicationPreview
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -194,4 +199,23 @@ private fun MainContent(
             Text(text = viewModel.getLocalizedString("change_language"))
         }
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun MainContentPreview() {
+    val previewContext = androidx.compose.ui.platform.LocalContext.current
+    KoinApplicationPreview(
+        application = {
+            androidContext(previewContext)
+            modules(
+                appModule
+            )
+        }
+    ) {
+        LanguageSwitcherTheme {
+            MainScreen()
+        }
+    }
+
 }
