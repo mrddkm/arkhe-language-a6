@@ -1,7 +1,7 @@
 package com.arkhe.languageswitcher.viewmodel
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
+import android.content.Context
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.arkhe.languageswitcher.R
 import com.arkhe.languageswitcher.model.Language
@@ -16,9 +16,11 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 class LanguageViewModel(
-    application: Application,
+    context: Context,
     private val languageRepository: LanguageRepository
-) : AndroidViewModel(application) {
+) : ViewModel() {
+
+    private val appContext: Context = context.applicationContext
 
     private val _languageState = MutableStateFlow(LanguageState())
     val languageState: StateFlow<LanguageState> = _languageState.asStateFlow()
@@ -47,37 +49,37 @@ class LanguageViewModel(
     private fun loadLocalizedStrings(languageCode: String): Map<String, String> {
         return mapOf(
             "app_name" to LanguageManager.getLocalizedString(
-                getApplication(),
+                appContext,
                 R.string.app_name,
                 languageCode
             ),
             "app_title" to LanguageManager.getLocalizedString(
-                getApplication(),
+                appContext,
                 R.string.app_title,
                 languageCode
             ),
             "select_language" to LanguageManager.getLocalizedString(
-                getApplication(),
+                appContext,
                 R.string.select_language,
                 languageCode
             ),
             "current_language" to LanguageManager.getLocalizedString(
-                getApplication(),
+                appContext,
                 R.string.current_language,
                 languageCode
             ),
             "welcome_message" to LanguageManager.getLocalizedString(
-                getApplication(),
+                appContext,
                 R.string.welcome_message,
                 languageCode
             ),
             "description" to LanguageManager.getLocalizedString(
-                getApplication(),
+                appContext,
                 R.string.description,
                 languageCode
             ),
             "change_language" to LanguageManager.getLocalizedString(
-                getApplication(),
+                appContext,
                 R.string.change_language,
                 languageCode
             )
