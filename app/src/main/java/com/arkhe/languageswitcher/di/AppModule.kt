@@ -10,11 +10,17 @@ import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
+/**
+ * Production module - uses real DataStore implementation
+ */
 val appModule = module {
-    single { LanguageRepository(get()) }
+    single<ILanguageRepository> { LanguageRepository(get()) }
     viewModel { LanguageViewModel(androidContext(), get()) }
 }
 
+/**
+ * Preview module - uses mock implementation without DataStore
+ */
 val previewModule = module {
     single<ILanguageRepository> { MockLanguageRepository() }
     viewModel { LanguageViewModel(androidContext(), get()) }
